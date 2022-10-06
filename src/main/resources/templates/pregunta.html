@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="elementos/elementos :: head"></head>
+<body>
+	<div class="container">
+		<div class="row m-3">
+		<div class="col-2"></div>
+			<div class="col-md-8">
+				<h1 class="h1 mt-3 mb-5" th:text="${titulo}"></h1>
+
+				<form th:object="${verbo}" th:action="@{/pregunta/}+${modo}"
+					method="post">
+					<input type="hidden" th:field="*{id}">
+					<table class="table">
+						<tr class="table-success text-center">
+							<th class="ps-4" colspan="3"><h2 class="h2"
+									th:text="${verbo.spanish}"></h2> <input type="hidden"
+								th:field="*{spanish}"></th>
+						</tr>
+						<tr>
+							<th class="text-center">Infinitive</th>
+							<th class="text-center">Past Simple</th>
+							<th class="text-center">Past Participle</th>
+						</tr>
+						<tr>
+							<td class="text-center"><span
+								th:if="${not pregunta || (pregunta && (modo!=1 && modo!=4))}"
+								th:text="${verbo.infinitive}"></span> <input
+								th:if="${not pregunta || (pregunta && (modo!=1 && modo!=4))}"
+								type="hidden" th:field="*{infinitive}"> <input
+								th:if="${pregunta && (modo==1 || modo==4)}" type="text"
+								th:field="*{infinitive}" autofocus="autofocus"></td>
+							<td class="text-center"><span
+								th:if="${not pregunta || (pregunta && (modo!=2 && modo!=4))}"
+								th:text="${verbo.past_simple}"></span> <input
+								th:if="${not pregunta || (pregunta && (modo!=2 && modo!=4))}"
+								type="hidden" th:field="*{past_simple}"> <input
+								th:if="${pregunta && (modo==2 || modo==4)}" type="text"
+								th:field="*{past_simple}" autofocus="autofocus"></td>
+							<td class="text-center"><span
+								th:if="${not pregunta || (pregunta && (modo!=3 && modo!=4))}"
+								th:text="${verbo.past_participle}"></span> <input
+								th:if="${not pregunta || (pregunta && (modo!=3 && modo!=4))}"
+								type="hidden" th:field="*{past_participle}"> <input
+								th:if="${pregunta && (modo==3 || modo==4)}" type="text"
+								th:field="*{past_participle}" autofocus="autofocus"></td>
+						</tr>
+
+						<tr th:if="${not pregunta}">
+							<td th:each="correccion : ${correcciones}"
+								th:text="${correccion}" th:class="${correccion}=='OK' ? 'text-success text-center fw-bold' : 'text-danger text-center fw-bold'"></td>
+						</tr>
+
+					</table>
+
+					<p class="text-center">
+						<input class="btn btn-success" th:if="${pregunta}" type="submit" value="CORREGIR">
+						<a class="btn btn-success" th:if="${not pregunta}" th:href="@{/pregunta/}+${modo}">Siguiente
+							Verbo</a>
+					</p>
+
+				</form>
+				<p class="text-center mt-5">
+					<a class="btn btn-success" th:href="@{/index}">Salir al menú principal</a>
+				</p>
+			</div>
+			<div class="col-2"></div>
+			<div th:replace="elementos/elementos :: autor"></div>
+		</div>
+	</div>
+
+	<span th:replace="elementos/elementos :: bootstrap-js"></span>
+</body>
+</html>

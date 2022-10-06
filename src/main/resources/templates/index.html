@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="elementos/elementos :: head"></head>
+<body>
+
+	<div class="container">
+		<div class="row m-3">
+			<h1 class="h1 mt-3 mb-3" th:utext="${titulo}"></h1>
+			<p class="h2 mt-3 mb-3">¿Cómo quieres practicar los verbos
+				irregulares?</p>
+
+			<div class="list-group mt-4" id="list-tab" role="tablist">
+				<a class="list-group-item list-group-item-action"
+					id="list-home-list" data-toggle="list" href="#list-home" role="tab"
+					aria-controls="home" th:each="opcion,item : ${opciones}"
+					th:href="@{/pregunta/}+(${item.index}+1)" th:text="${opcion}"></a>
+			</div>
+		</div>
+		<div th:replace="elementos/elementos :: autor"></div>
+
+	</div>
+
+
+
+	<span th:replace="elementos/elementos :: bootstrap-js"></span>
+</body>
+</html>
