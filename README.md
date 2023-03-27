@@ -18,3 +18,8 @@ Simple aplicación online para practicar los verbos irregulares en inglés.
 	- Aparece aleatoriamente un verbo en español y el estudiante debe escribir la forma o formas del verbo en inglés.
 	- Al pulsar el botón Comprobar la aplicación le dice si lo ha hecho bien o no.
 	- Al pulsar siguiente aparece un nuevo verbo.
+
+- Repositorio Docker Hub:
+	- https://hub.docker.com/r/nepenteh/verbos-irregulares
+
+
