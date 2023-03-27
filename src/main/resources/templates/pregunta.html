@@ -25,23 +25,23 @@
 						<tr>
 							<td class="text-center"><span
 								th:if="${not pregunta || (pregunta && (modo!=1 && modo!=4))}"
-								th:text="${verbo.infinitive}"></span> <input
+								th:text="${verbo.infinitive}"></span> <input autocomplete="off"
 								th:if="${not pregunta || (pregunta && (modo!=1 && modo!=4))}"
-								type="hidden" th:field="*{infinitive}"> <input
+								type="hidden" th:field="*{infinitive}"> <input autocomplete="off"
 								th:if="${pregunta && (modo==1 || modo==4)}" type="text"
 								th:field="*{infinitive}" autofocus="autofocus"></td>
 							<td class="text-center"><span
 								th:if="${not pregunta || (pregunta && (modo!=2 && modo!=4))}"
-								th:text="${verbo.past_simple}"></span> <input
+								th:text="${verbo.past_simple}"></span> <input autocomplete="off"
 								th:if="${not pregunta || (pregunta && (modo!=2 && modo!=4))}"
-								type="hidden" th:field="*{past_simple}"> <input
+								type="hidden" th:field="*{past_simple}"> <input autocomplete="off"
 								th:if="${pregunta && (modo==2 || modo==4)}" type="text"
 								th:field="*{past_simple}" autofocus="autofocus"></td>
 							<td class="text-center"><span
 								th:if="${not pregunta || (pregunta && (modo!=3 && modo!=4))}"
-								th:text="${verbo.past_participle}"></span> <input
+								th:text="${verbo.past_participle}"></span> <input autocomplete="off"
 								th:if="${not pregunta || (pregunta && (modo!=3 && modo!=4))}"
-								type="hidden" th:field="*{past_participle}"> <input
+								type="hidden" th:field="*{past_participle}" > <input autocomplete="off"
 								th:if="${pregunta && (modo==3 || modo==4)}" type="text"
 								th:field="*{past_participle}" autofocus="autofocus"></td>
 						</tr>
